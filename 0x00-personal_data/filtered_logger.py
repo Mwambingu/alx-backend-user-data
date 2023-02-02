@@ -15,7 +15,7 @@ PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
 def filter_datum(
         fields: List[str], redaction: str, message: str, separator: str,
-        ) -> str:
+) -> str:
     """Filters a log line.
     """
     extract, replace = (patterns["extract"], patterns["replace"])
@@ -41,6 +41,7 @@ class RedactingFormatter(logging.Formatter):
         msg = super(RedactingFormatter, self).format(record)
         txt = filter_datum(self.fields, self.REDACTION, msg, self.SEPARATOR)
         return txt
+
 
 if __name__ == "__main__":
     main()
