@@ -41,7 +41,6 @@ class DB:
         self.__session.commit()
         return new_user
 
-
     def find_user_by(self, **kwargs) -> User:
         """Finds a user based on a set of filters.
         """
